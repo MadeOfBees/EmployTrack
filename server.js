@@ -32,7 +32,7 @@ async function init() {
 }
 init();
 
-function menu(mainMenu) {
+async function menu(mainMenu) {
   switch (mainMenu) {
     case 'View all employees':
       connection.query(
@@ -43,7 +43,7 @@ function menu(mainMenu) {
       );
       break;
     case 'Add an employee':
-      console.log('Add an employee');
+      addEmp()
       break;
     case 'Update existing employee role':
       console.log('Update existing employee role');
@@ -71,4 +71,49 @@ function menu(mainMenu) {
       console.log('Add a department');
       break;
   }
+}
+
+async function addEmp() {
+  var fiName = await inquirer.prompt([{
+    name: 'fName',
+    message: "Employee's first name",
+    default: 'NULL'
+  }])
+  for(const key in fiName) {
+    if(fiName.hasOwnProperty(key)) {
+        var fName = fiName[key];
+    }
+}
+  var laName = await inquirer.prompt([{
+    name: 'lName',
+    message: "Employee's last name",
+    default: 'NULL'
+  }])
+  for(const key in laName) {
+    if(laName.hasOwnProperty(key)) {
+        var lName = laName[key];
+    }
+}
+  var rid = await inquirer.prompt([{
+    name: 'role_id',
+    message: "Role ID?",
+    default: 'NULL'
+  }])
+  for(const key in rid) {
+    if(rid.hasOwnProperty(key)) {
+        var role_id = rid[key];
+    }
+}
+  var mid = await inquirer.prompt([{
+    name: 'manager_id',
+    message: "manager ID?",
+    default: 'NULL'
+  }])
+  for(const key in mid) {
+    if(mid.hasOwnProperty(key)) {
+        var manager_id = mid[key];
+    }
+}
+  connection.query(
+    `INSERT INTO employee (first_name,last_name,role_id,manager_id) VALUES ("${fName}","${lName}","${role_id}","${manager_id}");`);
 }
