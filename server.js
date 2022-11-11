@@ -41,24 +41,23 @@ async function menu(mainMenu) {
           console.table(results);
         }
       );
-      break;
+      return;
     case 'Add an employee':
       addEmp()
-      break;
+      return;
     case 'Update existing employee role':
-      console.log('Update existing employee role');
-      break;
+      updateRole()
     case 'View all existing roles':
       connection.query(
-        'SELECT * FROM roles',
+        'SELECT * FROM Roles',
         function (err, results, fields) {
           console.table(results);
         }
       );
-      break;
+      return;
     case 'Add a role':
       addRole();
-      break;
+      return;
     case 'View all existing Departments':
       connection.query(
         'SELECT * FROM department',
@@ -66,10 +65,10 @@ async function menu(mainMenu) {
           console.table(results);
         }
       );
-      break;
+      return;
     case `Add a department`:
       addDept()
-      break;
+      return;
   }
 }
 
@@ -152,6 +151,7 @@ async function addRole() {
   connection.query(
     `INSERT INTO role (title,salary,department_id) VALUES ("${name}","${salary}","${department_id}");`);
 }
+
 async function addDept() {
   var dName = await inquirer.prompt([{
     name: 'name',
@@ -165,4 +165,26 @@ async function addDept() {
   }
   connection.query(
     `INSERT INTO department (name) VALUES ("${name}");`);
+}
+
+function updateRole() {
+  // connection.query(
+  //   'SELECT * FROM role',
+  //   function (err, results, fields) {
+  //     inquirer.prompt({
+  //       "type":"list",
+  //       "message":"what role do you want to update?",
+  //       "choices":[...results]
+  //     }).then(function(selection){
+  //       connection.query(
+          
+  //       )
+  //     })
+  //   }
+  // );
+  // connection.query(
+  //   'INSERT * FROM employee',
+  // );
+  console.log(`feature not supported in this build`)
+    return;
 }

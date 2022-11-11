@@ -17,4 +17,3 @@ VALUES
 ("Mark", "Smith", 2,NULL),
 ("Kevin", "Wu", 1,NULL),
 ("Sam", "Ross", 1,3)
-
