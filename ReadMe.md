@@ -12,7 +12,7 @@
 
 ![2](https://user-images.githubusercontent.com/9198297/201373680-2555d8f7-c62a-434f-9348-3436fd22478f.jpg)
 
-https://drive.google.com/file/d/1QLUtfXUahx4Q7Lv3qe12jsSRxUH7HawG/view
+Video of the app in action: https://drive.google.com/file/d/1QLUtfXUahx4Q7Lv3qe12jsSRxUH7HawG/view
 
     
 ## Report an issue: 
